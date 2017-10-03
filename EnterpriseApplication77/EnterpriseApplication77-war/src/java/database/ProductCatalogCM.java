@@ -5,8 +5,11 @@
  */
 package database;
 
+import beans.ProductCatalog;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  *
@@ -18,4 +21,11 @@ public class ProductCatalogCM {
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
+    
+    @PersistenceContext(unitName = "EnterpriseApplication77PU")
+    private EntityManager em;
+    
+    public void addProductCatalog(ProductCatalog productCatalog){
+        em.persist(productCatalog);
+    }
 }
