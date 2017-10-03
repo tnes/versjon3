@@ -8,9 +8,9 @@
     <h:body>
         <h1>Login</h1>
         <h:form>
-            <p>Username: <h:inputText id="username" value="#{user.username}" /></p>
-            <p>Password: <h:inputText id="password" value="#{user.password}" /></p>
-            <h:commandButton id="login" value="Submit" action="#{user.login}" />
+            <p>Username: <h:inputText id="username" value="#{userController.user.username}" /></p>
+            <p>Password: <h:inputText id="password" value="#{userController.user.password}" /></p>
+            <h:commandButton id="login" value="Submit" action="#{userController.login}" />
         </h:form>
         <h:form>
             <h:commandButton id="register" value="Register" action="register" />

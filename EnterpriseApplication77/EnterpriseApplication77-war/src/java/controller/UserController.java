@@ -14,6 +14,7 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import beans.User;
+import database.UserCM;
 
 /**
  *
@@ -30,6 +31,8 @@ public class UserController implements Serializable {
     private String email;
     private String phonenumber;
     private String password;
+    
+    private UserCM userCM;
 
     /**
      * Creates a new instance of UserController
@@ -54,10 +57,10 @@ public class UserController implements Serializable {
         this.username = request.getParameter("username");
         this.password = request.getParameter("password");
         
-        isValid = this.user.isValidLogin(this.username, this.password);
+        isValid = this.userCM.isValidLogin(this.username, this.password);
         
         if(isValid) {
-            this.user.fetchUser(this.username);
+            userCM.findUser(this.username);
             HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
             session.setAttribute("username", this.username);
             session.setAttribute("password", this.password);

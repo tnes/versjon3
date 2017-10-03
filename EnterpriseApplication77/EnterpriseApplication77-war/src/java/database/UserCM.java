@@ -5,17 +5,36 @@
  */
 package database;
 
+import beans.User;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  *
  * @author Vidar
  */
 @Stateless
-@LocalBean
 public class UserCM {
 
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
+    //@PersistenceContext(unitName = "EnterpriseApplication77PU")
+    private EntityManager em;
+    
+    protected EntityManager getEntityManager() {
+        return em;
+   }
+    
+    public void storeUser(User user) {
+        em.persist(user);
+    }
+    
+    public User findUser(String username) {
+        User foundUser = em.find(User.class, username);
+        return foundUser;
+    }
+    
+    public boolean isValidLogin(String username, String password) {
+       return true;
+    }
 }

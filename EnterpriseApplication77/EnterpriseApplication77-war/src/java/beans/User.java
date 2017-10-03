@@ -74,31 +74,9 @@ public class User implements Serializable {
     public User() {
     }
     
-    //public void storeUser(User user) {
-    //    getEntityManager().persist(user);
-    //}
-    
-    public boolean isValidLogin(String username, String password) {
-       /* boolean isValid;
-        Query createNamedQuery = getEntityManager().createNamedQuery("User.findByUsername");
-        createNamedQuery.setParameter("username", username);
-        
-        isValid = createNamedQuery.getResultList().size() > 0;
-        return isValid;*/
-       return true;
-    }
-    
     public boolean isValidRegister(String un, String em, String pn, String pw) {
         return isValidUsername(un) && isValidEmail(em) && isValidPhonenumber(pn) && isValidPassword(pw);
     }
-    
-    public User fetchUser(String username) {
-       /* Query createNamedQuery = getEntityManager().createNamedQuery("User.findByUsername");
-        createNamedQuery.setParameter("username", username);
-        return (User) createNamedQuery.getSingleResult();*/
-       return null;
-    }
-    
     
     public Long getId() {
         return ID;
