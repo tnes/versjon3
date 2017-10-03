@@ -28,4 +28,9 @@ public class BidCM {
     public void addBid(Bid bid){
         em.persist(bid);
     }
+    
+    public void refreshBid(Bid newBid){
+        em.refresh(newBid);
+    }
+    
 }
