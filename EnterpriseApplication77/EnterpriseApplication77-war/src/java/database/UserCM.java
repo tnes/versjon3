@@ -18,6 +18,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class UserCM {
 
+<<<<<<< HEAD
     //@PersistenceContext(unitName = "EnterpriseApplication77PU")
     private EntityManager em;
     
@@ -37,4 +38,15 @@ public class UserCM {
     public boolean isValidLogin(String username, String password) {
        return true;
     }
+=======
+    // Add business logic below. (Right-click in editor and choose
+    // "Insert Code > Add Business Method")
+    
+    @PersistenceContext(unitName = "EnterpriseApplication77PU")
+    private EntityManager em;
+    
+    public void addUser(User user){
+        em.persist(user);
+    }
+>>>>>>> 2ee972a9d27c0937ad52ee0d0a7f8eb189c31823
 }
