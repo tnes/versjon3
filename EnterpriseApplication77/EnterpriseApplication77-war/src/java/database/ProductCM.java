@@ -16,9 +16,9 @@ import javax.persistence.PersistenceContext;
  * @author Vidar
  */
 @Stateless
-@LocalBean
 public class ProductCM {
 
+<<<<<<< Updated upstream
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
     
@@ -28,4 +28,25 @@ public class ProductCM {
     public void addProduct(Product product){
         em.persist(product);
     }
+=======
+    @PersistenceContext(unitName = "EnterpriseApplication77PU")
+    private EntityManager em;
+
+    public void createProduct(Product product) {
+        em.persist(product);
+    }
+
+    public void find(long id) {
+        em.find(Product.class, id);
+    }
+    
+    public void deleteProduct(Product product) {
+        em.remove(product);
+    }
+    
+    public void updateProduct(Product product) {
+        em.refresh(product);
+    }
+
+>>>>>>> Stashed changes
 }
